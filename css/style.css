@@ -47,6 +47,22 @@ ul{
 ::-webkit-scrollbar-thumb{
   background-color: var(--main-color);
 }
+.title{
+  width: fit-content;
+  margin: auto;
+  text-align: center;
+}
+.title h1{
+  color: #353535;
+  font-size: 40px;
+  font-weight: normal;
+  margin-bottom: 50px;
+}
+@media(max-width: 767px){
+  .title h1{
+    font-size: 30px;
+  }
+}
 /* end global rules */
 /* Start Header */
 .header{
@@ -172,6 +188,8 @@ ul{
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: soft 1s linear forwards;
+  -webkit-animation: soft 1s linear forwards;
 }
 .landing::before{
   content: "";
@@ -196,15 +214,14 @@ ul{
   margin-top: 75px;
   text-align: center;
 }
+.landing .container .text .title h1{
+  color: white;
+  font-weight: normal;
+}
 .landing .container .text p{
   color: #f0f0f0;
   font-size: 12px;
   letter-spacing: 8px;
-}
-.landing .container .text h1{ 
-  color: white;
-  font-size: 40px;
-  font-weight: normal;
 }
 .landing .container .input{
   display: flex;
@@ -253,9 +270,8 @@ ul{
   flex-direction: column;
   flex-basis: 50%;
 }
-.features .content .title h1{
-  font-size: 40px;
-  font-weight: normal;
+.features .content .feature-title{
+  text-align: left;
   color: #353535;
 }
 .features .content ul{
@@ -332,17 +348,6 @@ ul{
   padding-bottom: var(--padding-bottom);
   background-color: #f9f9f9;
 }
-.about .title{
-  width: fit-content;
-  margin: auto;
-  text-align: center;
-}
-.about .title h1{
-  color: #353535;
-  font-size: 40px;
-  font-weight: normal;
-  margin-bottom: 50px;
-}
 .about .container{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -416,23 +421,27 @@ ul{
   padding-bottom: var(--padding-bottom);
 }
 .testimonials .container{
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+display: flex;
+justify-content: center;
+align-items: center;
 }
-.testimonials .image{
-  background-image: url(../images/testimonial-image.jpg);
-  background-position: center;
-  background-size: cover;
-  height: 73vh;
-  width: 100%;
-}
-.testimonials .container .text{
+.testimonials .text{
   padding: 50px;
+  max-width: 100%;
   background-color: #202020;
   color: white;
   position: relative;
 }
-.testimonials .container .text ul{
+.testimonials .text .test-title{
+  color: #f6f6f6;
+  text-align: left;
+}
+@media(max-width: 767px){
+  .testimonials .text .test-title h1{
+    font-size: 30px;
+  }
+}
+.testimonials .text ul{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -486,17 +495,6 @@ ul{
   padding-top: var(--padding-top);
   padding-bottom: var(--padding-bottom);
   background-color: #f9f9f9;
-}
-.pricing .title{
-  width: fit-content;
-  margin: auto;
-  text-align: center;
-}
-.pricing .title h1{
-  color: #353535;
-  font-size: 40px;
-  font-weight: normal;
-  margin-bottom: 50px;
 }
 .pricing .container{
   display: grid;
@@ -582,17 +580,6 @@ ul{
 .contact{
   padding-top: var(--padding-top);
   padding-bottom: var(--padding-bottom);
-}
-.contact .title{
-  width: fit-content;
-  margin: auto;
-  text-align: center;
-}
-.contact .title h1{
-  color: #353535;
-  font-size: 40px;
-  font-weight: normal;
-  margin-bottom: 50px;
 }
 .contact form{
   display: flex;
@@ -730,3 +717,14 @@ ul{
   }
 }
 /* end footer */
+@keyframes soft {
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 50%;
+  }
+  100%{
+    opacity: 1;
+  }  
+}
